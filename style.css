@@ -461,3 +461,44 @@ footer p a:hover
     color:#D62E33;
     font-size: 20px;
 }
+
+/* loading */
+.loading
+{
+    background-color: rgba(255, 0, 0,1);
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:9999999;
+}
+
+.lds-dual-ring {
+    position: absolute;
+    top:50%;
+    left:50%;
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    opacity:1;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 46px;
+    height: 46px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

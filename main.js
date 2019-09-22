@@ -1,6 +1,4 @@
 
-
-
 let navItem =$(".top-nav-item");
 
 navItem.click(function(){
@@ -9,7 +7,6 @@ navItem.click(function(){
   $(this).siblings().removeClass("active");
 
   let temp=$($(this).attr("href")).offset().top;
-  console.log(temp);
   $("body,html").animate({scrollTop: `${temp}`},2000);
 })
 
@@ -26,10 +23,34 @@ $("#comment").keyup(function(){
 })
 
 
+$(window).scroll(function(){
+  navActive();
+})
 
 
+$(window).ready(function(){
+
+  navActive();
+  $(".loading").fadeOut(1000);
+})
 
 
+let navActive = function(){
 
+  let horHeight= $(window).scrollTop();
 
+  if(horHeight >= $("#first-section").offset().top)
+  {
+    $("a[href='#first-section']").addClass("active");
+    $("a[href='#first-section']").siblings().removeClass("active");
+  }
+  for(let i=2;i<=5;i++)
+  {
+    if(horHeight >= $("#section-"+i+"").offset().top)
+    {
+      $("a[href='#section-"+i+"']").addClass("active");
+      $("a[href='#section-"+i+"']").siblings().removeClass("active");
+    }
+  }
 
+}
